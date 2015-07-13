@@ -37,10 +37,12 @@ function CoffeeMap(opt) {
 		var $dom = self._svg.find('#' + code);
 		if ($dom.length > 0) {
 			$dom.attr(attribute, true);
-			self.parsableCountries[ code ] = self.parsableCountries[ code ] || {
-				code: code,
-				name: $dom.find('> desc > name').text(),
-			};
+			if (!self.parsableCountries[code]) {
+				self.parsableCountries[code] = { code : code };
+				$dom.find('> desc > *').each(function() {
+					self.parsableCountries[code][ this.tagName ] = $(this).html();
+				});
+			}
 		}
 	};
 
@@ -59,7 +61,7 @@ function CoffeeMap(opt) {
 			viewBox: '0 0 700 700'
 		});
 
-
+		// Add clickable and hightlighed countries
 		_.each(opt.clickableCountries, function(c) { parseCountry(c, 'clickable'); });
 		_.each(opt.highlightedCountries, function(c) { parseCountry(c, 'highlighted'); });
 
@@ -159,7 +161,7 @@ function CoffeeMap(opt) {
 
 		// Set the "parent" of tooltip
 		self.$tooltip.uiShow({
-			top: offset.top + bounds.height,
+			top: offset.top + bounds.height + 10,
 			left: offset.left + (bounds.width / 2) - (self.$tooltip.width() / 2)
 		});
 	});
