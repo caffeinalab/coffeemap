@@ -1,16 +1,16 @@
 # CoffeeMap
 
-#### Options
+## Options
 
-##### containerSelector (*String*)
+### containerSelector (*String*)
 
 A jQuery DOM selector where to embed the map.
 
-#### Dependencies
+## Dependencies
 
 * *underscore.js*
 * *jQuery*
 
-#### Credits
+## Credits
 
 Maps SVGs are taken from (http://code.highcharts.com/mapdata/1.0.0/)[http://code.highcharts.com/mapdata/1.0.0]
