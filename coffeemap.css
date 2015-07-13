@@ -1,0 +1,67 @@
+.coffeemapmap-container {
+	position: relative;
+}
+
+.coffeemap-container > .coffeemap-mobilist {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.coffeemap-container > .coffeemap-map {
+		display: none;
+	}
+	.coffeemap-container > .coffeemap-mobilist {
+		display: block;
+	}
+}
+
+.coffeemap-tooltip {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	padding: 3px 15px;
+	color: #222;
+	background: #fff;
+	position: absolute;
+	opacity: 0;
+	display: block;
+	text-align: center;
+	height: auto;
+	border-radius: 2px;
+	line-height: 40px;
+	text-transform: uppercase;
+	width: auto;
+	font-size: 12px;
+	-webkit-transition: opacity .4s, -webkit-transform .4s, visibility 0s linear .4s;
+	visibility: hidden;
+	box-shadow: 0 4px 10px 4px rgba(0,0,0,.4);
+}
+
+.coffeemap-tooltip:before {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 10px 10px 10px;
+	border-color: transparent transparent #ffffff transparent;
+	content: '';
+	display: block;
+	position: absolute;
+	top: -10px;
+	left: 50%;
+	margin-left: -10px;
+}
+
+.coffeemap-tooltip.visible {
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	-webkit-transition: opacity .4s, -webkit-transform .4s;
+	visibility: visible;
+}
+
+.coffeemap-map path[highlighted] {
+	cursor: pointer;
+	fill: #369;
+}
+
+.coffeemap-map path[clickable]:hover {
+	fill: #C4241C;
+	cursor: pointer;
+}
