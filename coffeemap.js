@@ -1,8 +1,13 @@
 function CoffeeMap(opt) {
 	var self = this;
+
+	if (opt.containerSelector == null) {
+		throw new Error('CoffeeMap: define a container selector');
+	}
+
 	opt = _.extend({
 
-		containerSelector: 'body',
+		containerSelector: null,
 		mapName: 'world',
 		baseSVGPath: '/svg',
 
