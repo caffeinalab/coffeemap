@@ -1,5 +1,11 @@
 # CoffeeMap
 
+#### Options
+
+##### containerSelector (*String*)
+
+A jQuery DOM selector where to embed the map.
+
 #### Dependencies
 
 * *underscore.js*
