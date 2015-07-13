@@ -2,7 +2,7 @@
 
 ## Options
 
-### containerSelector (*String*)
+### `containerSelector` (*String*)
 
 A jQuery DOM selector where to embed the map.
 
