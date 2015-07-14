@@ -1,5 +1,6 @@
 function CoffeeMap(opt) {
 	var self = this;
+	var $ = jQuery;
 
 	if (opt.containerSelector == null) {
 		throw new Error('CoffeeMap: define a container selector');

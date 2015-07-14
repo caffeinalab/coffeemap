@@ -1,10 +1,26 @@
 # CoffeeMap
 
-## Options
+## Usage
+
+```js
+<div id="map"></div>
+<script>
+var embed_map = new CoffeeMap({
+	containerSelector: '#map',
+	mapName: 'world'
+});
+</script>
+```
+
+## Constructor options
 
 ### `containerSelector` (*String*)
 
 A jQuery DOM selector where to embed the map.
+
+### `baseSVGPath` (*String*)
+
+The URI where to load the SVG maps.
 
 ## Dependencies
 
