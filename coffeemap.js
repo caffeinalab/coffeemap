@@ -53,8 +53,8 @@ function CoffeeMap(opt) {
 
 		// Set the "parent" of tooltip
 		self.$tooltip.uiShow({
-			top: offset.top + bounds.height + 10,
-			left: offset.left + (bounds.width / 2) - (self.$tooltip.width() / 2)
+			top: offset.top + bounds.height,
+			left: offset.left + (bounds.width / 2) - (self.$tooltip.width() / 2) - 10
 		});
 	});
 
