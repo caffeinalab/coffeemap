@@ -37,25 +37,27 @@ function CoffeeMap(opt) {
 		// Get the country object
 		var id = $path[0].id;
 		self.$tooltip.referral = id;
-
 		var obj_country = self.paths[ id ];
 
 		// Calculate the best position for the tooltip
-		var bounds = $path[0].getBoundingClientRect();
-		var offset = $path.offset();
-
-		var offset_map = self.$container.find('.coffeemap-map').offset();
-		offset.left -= offset_map.left;
-		offset.top -= offset_map.top;
+		var path_rect = $path[0].getBoundingClientRect();
+		var path_offset = $path.offset();
+		var map_offset = self.$svg.offset();
+		var bounds = {
+			left: path_offset.left - map_offset.left,
+			top: path_offset.top - map_offset.top,
+			width: path_rect.width,
+			height: path_rect.height
+		};
 
 		// Call the function the will populate the tooltip
 		self.opt.highlightCallback.call(self, obj_country);
 
+		var x = bounds.left + ((obj_country['hc-middle-x'] || 0.5) * bounds.width) - (self.$tooltip.width() / 2) - 10;
+		var y = bounds.top + ((obj_country['hc-middle-y'] || 0.5) * bounds.height) + 10;
+
 		// Set the "parent" of tooltip
-		self.$tooltip.uiShow({
-			top: offset.top + bounds.height,
-			left: offset.left + (bounds.width / 2) - (self.$tooltip.width() / 2) - 10
-		});
+		self.$tooltip.uiShow({ top: y, left: x });
 	});
 
 	///////////////////////
