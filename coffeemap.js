@@ -130,7 +130,7 @@ CoffeeMap.prototype.parseCountry = function(code, attribute) {
 		if (!self.paths[code]) {
 			self.paths[code] = { code : code };
 			$dom.find('> desc > *').each(function() {
-				self.paths[code][ this.tagName ] = jQuery(this).html();
+				self.paths[code][ this.tagName ] = jQuery(this).text();
 			});
 		}
 	}
